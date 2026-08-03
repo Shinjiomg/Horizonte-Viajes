@@ -94,7 +94,7 @@ El CSS ya viene compilado en `css/main.css`.
 
 ### Video de la sección «Vive la experiencia»
 
-Coloca tu archivo MP4 en `assets/video/` (actualmente `fish.mp4`) y verifica la ruta en el `<source>` de `index.html`.
+Coloca tu MP4 en `assets/video/` (actualmente `fish.mp4`). El poster `fish-poster.jpg` es el primer fotograma del video.
 
 ### Editar estilos Tailwind
 
