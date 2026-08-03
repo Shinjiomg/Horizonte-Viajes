@@ -11,6 +11,22 @@ Sitio web de agencia de viajes ficticia — **Proyecto Final** (Ingeniería de S
 
 Horizonte Viajes es un aplicativo web con páginas públicas (inicio y destinos) y un módulo **CRUD de solicitudes de reserva**, integrado temáticamente con la agencia. Los visitantes envían reservas desde un modal; el área administrativa permite listar, editar y eliminar solicitudes.
 
+**Modalidad:** desarrollo individual (la consigna permite colaboración; este repositorio es trabajo en solitario).
+
+## Proyecto Final — Requisitos cubiertos
+
+| Requisito de la actividad | Implementación |
+|---|---|
+| CRUD de la Actividad 4 integrado | `ReservaService.js` + `reservas.html` |
+| Mínimo 3 interfaces responsive | `index.html`, `pagina.html`, `reservas.html` |
+| Navbar y footer | `js/layout.js` |
+| Formulario registro / contacto | Modal **Reservar** |
+| Multimedia (texto, imágenes, video, slider) | Carousel, Unsplash, video HTML5, animaciones scroll |
+| Documentación del proyecto | `Documento_Analisis.md` |
+| Mockups | `docs/mockups/mockups.md` |
+| Metodología ágil (Scrum) | Sección 3 del documento de análisis |
+| Repositorio GitHub | Este repositorio |
+
 ## Proyecto Final — Módulo CRUD
 
 | Requisito académico | Implementación en este proyecto |
@@ -42,7 +58,11 @@ Horizonte-Viajes/
 │   ├── reserva-modal.js    # Modal y formulario de reserva
 │   ├── dropdown.js         # Selects personalizados
 │   ├── layout.js           # Header, footer, toasts
-│   └── carousel.js         # Hero carousel
+│   ├── carousel.js         # Hero carousel
+│   └── animations.js       # Animaciones al scroll
+├── docs/
+│   └── mockups/
+│       └── mockups.md      # Mockups estructurales del sitio
 ├── database/
 │   └── horizonte_viajes.sql
 ├── Documento_Analisis.md

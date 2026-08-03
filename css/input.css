@@ -294,4 +294,21 @@
   .admin-ticker__link {
     @apply inline-flex shrink-0 items-center gap-1 rounded-full bg-white/15 px-3 py-1 font-semibold text-white transition hover:bg-white/25;
   }
+
+  [data-reveal] {
+    @apply translate-y-6 opacity-0 transition-all duration-700 ease-out;
+  }
+
+  [data-reveal].is-visible {
+    @apply translate-y-0 opacity-100;
+  }
+
+  .video-embed {
+    @apply aspect-video w-full overflow-hidden rounded-2xl border border-slate-300/60 shadow-lg shadow-footer/10;
+  }
+
+  .video-embed iframe,
+  .video-embed video {
+    @apply h-full w-full bg-black object-cover;
+  }
 }
