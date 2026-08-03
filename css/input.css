@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .form-grid {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .form-field--full {
+    @apply sm:col-span-2 lg:col-span-3;
+  }
+
+  .form-field--span-2-sm {
+    @apply sm:col-span-2 lg:col-span-1;
+  }
+
+  .form-label {
+    @apply mb-1 block text-sm font-semibold text-slate-700;
+  }
+
+  .form-label__optional {
+    @apply font-normal text-slate-400;
+  }
+
+  .form-control {
+    @apply w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+
+  .form-checkbox {
+    @apply flex items-start gap-2 text-sm text-slate-600;
+  }
+
+  .form-checkbox input {
+    @apply mt-1 rounded border-slate-300 text-accent focus:ring-accent;
+  }
+
+  .form-checkbox a {
+    @apply text-primary hover:underline;
+  }
+
+  .form-hint {
+    @apply mt-2 text-sm text-slate-600;
+  }
+
+  .form-hint .bi {
+    @apply mr-1 text-accent;
+  }
+
+  .form-trust {
+    @apply mt-5 flex flex-wrap justify-center gap-4 border-t border-slate-100 pt-4 text-xs text-slate-500;
+  }
+
+  .form-trust .bi {
+    @apply mr-1 text-primary;
+  }
+
+  .form-card {
+    @apply overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-footer/5;
+  }
+
+  .form-card__bar {
+    @apply h-1 bg-secondary;
+  }
+
+  .form-card__body {
+    @apply p-6 sm:p-8;
+  }
+
+  .form-card__header {
+    @apply mb-6 flex items-start gap-4 border-b border-slate-100 pb-6;
+  }
+
+  .form-card__icon {
+    @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-xl text-primary;
+  }
+
+  .form-card__title {
+    @apply font-display text-xl font-semibold text-footer;
+  }
+
+  .form-card__subtitle {
+    @apply text-sm text-slate-500;
+  }
+
+  .form-actions {
+    @apply flex flex-col gap-3 sm:flex-row;
+  }
+
+  .form-actions > * {
+    @apply flex-1;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 font-semibold transition;
+  }
+
+  .btn--accent {
+    @apply w-full bg-accent text-white hover:bg-[#e76f00];
+  }
+
+  .btn--primary {
+    @apply bg-primary text-white hover:bg-[#005f92];
+  }
+
+  .btn--ghost {
+    @apply border border-slate-300 text-slate-600 hover:bg-slate-50;
+  }
+
+  .link-back {
+    @apply mb-6 inline-flex items-center gap-1 text-sm font-medium text-primary hover:text-accent;
+  }
+
+  .page-badge {
+    @apply mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary;
+  }
+
+  .page-title {
+    @apply font-display text-3xl font-bold text-primary;
+  }
+
+  .page-subtitle {
+    @apply mt-2 text-slate-500;
+  }
+
+  .loading-box {
+    @apply rounded-2xl border border-slate-200 bg-white p-10 text-center text-slate-500;
+  }
+
+  .hv-dropdown {
+    @apply relative;
+  }
+
+  .hv-dropdown__native {
+    @apply sr-only;
+  }
+
+  .hv-dropdown__trigger {
+    @apply flex w-full items-center justify-between gap-3 rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-left text-slate-700 transition hover:border-slate-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20;
+  }
+
+  .hv-dropdown.is-open .hv-dropdown__trigger {
+    @apply border-primary ring-2 ring-primary/20;
+  }
+
+  .hv-dropdown__label {
+    @apply min-w-0 flex-1 truncate;
+  }
+
+  .hv-dropdown__label.is-placeholder {
+    @apply text-slate-400;
+  }
+
+  .hv-dropdown__chevron {
+    @apply shrink-0 text-slate-400 transition;
+  }
+
+  .hv-dropdown.is-open .hv-dropdown__chevron {
+    @apply rotate-180 text-primary;
+  }
+
+  .hv-dropdown__menu {
+    @apply invisible absolute left-0 right-0 top-[calc(100%+0.35rem)] z-50 max-h-56 translate-y-[-4px] overflow-y-auto rounded-xl border border-slate-200 bg-white opacity-0 shadow-xl shadow-footer/10 transition;
+  }
+
+  .hv-dropdown.is-open .hv-dropdown__menu {
+    @apply visible translate-y-0 opacity-100;
+  }
+
+  .hv-dropdown__option {
+    @apply block w-full border-0 bg-transparent px-4 py-2.5 text-left text-slate-700 transition hover:bg-primary/10 hover:text-primary disabled:cursor-not-allowed disabled:text-slate-400;
+  }
+
+  .hv-dropdown__option.is-focused {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .hv-dropdown__option.is-selected {
+    @apply bg-primary/15 font-semibold text-footer;
+  }
+
+  .hv-dropdown__option + .hv-dropdown__option {
+    @apply border-t border-slate-50;
+  }
+
+  .modal__backdrop {
+    @apply absolute inset-0 bg-footer/65 backdrop-blur-sm;
+  }
+
+  .modal__wrap {
+    @apply relative flex min-h-full items-end justify-center p-0 sm:items-center sm:p-4;
+  }
+
+  .modal__panel {
+    @apply flex max-h-[94vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-2xl border border-slate-200 bg-white shadow-2xl sm:rounded-2xl;
+  }
+
+  .modal__bar {
+    @apply h-1 shrink-0 bg-accent;
+  }
+
+  .modal__header {
+    @apply flex shrink-0 items-start justify-between gap-4 border-b border-slate-100 px-5 py-4 sm:px-6;
+  }
+
+  .modal__header-main {
+    @apply flex items-start gap-3;
+  }
+
+  .modal__header-icon {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-lg text-primary;
+  }
+
+  .modal__title {
+    @apply font-display text-xl font-bold text-footer;
+  }
+
+  .modal__desc {
+    @apply text-sm text-slate-500;
+  }
+
+  .modal__close {
+    @apply rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-600;
+  }
+
+  .modal__body {
+    @apply overflow-y-auto px-5 py-5 sm:px-6 sm:py-6;
+  }
+
+  .cta-band {
+    @apply relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 border-t-4 border-accent bg-primary px-4 py-14 sm:px-6 lg:px-8;
+  }
+
+  .cta-band__inner {
+    @apply mx-auto max-w-3xl text-center;
+  }
+
+  .cta-band__badge {
+    @apply mb-4 inline-block rounded-full bg-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white;
+  }
+
+  .cta-band__title {
+    @apply font-display text-3xl font-bold text-white sm:text-4xl;
+  }
+
+  .cta-band__text {
+    @apply mx-auto mt-4 max-w-xl text-white/85;
+  }
+
+  .cta-band__actions {
+    @apply mt-8 flex flex-wrap items-center justify-center gap-4;
+  }
+
+  .cta-band__btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#e76f00] hover:shadow-xl;
+  }
+
+  .cta-band__link {
+    @apply inline-flex items-center gap-2 text-sm font-semibold text-white/90 transition hover:text-white;
+  }
+
+  .cta-band__trust {
+    @apply mt-8 flex flex-wrap justify-center gap-6 text-xs text-white/60;
+  }
+
+  .cta-band__trust .bi {
+    @apply mr-1 text-accent;
+  }
+}

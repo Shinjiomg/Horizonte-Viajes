@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Viajes | Gestión de Reservas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="overflow-x-hidden bg-section-soft font-sans text-slate-800">
+    <div id="site-header"></div>
+
+    <section class="relative mt-[4.5rem] overflow-hidden bg-footer lg:mt-[6.5rem]">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1920&q=80')] bg-cover bg-center opacity-20"></div>
+        <div class="relative mx-auto max-w-7xl px-4 py-12 sm:py-16">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="flex flex-wrap items-center gap-2 text-sm text-white/75">
+                    <li><a href="index.html" class="hover:text-accent">Inicio</a></li>
+                    <li class="text-white/40">/</li>
+                    <li class="text-white">Gestión de reservas</li>
+                </ol>
+            </nav>
+            <div class="max-w-2xl">
+                <span class="mb-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">Área operativa</span>
+                <h1 class="font-display text-3xl font-bold text-white sm:text-4xl">Solicitudes de viaje</h1>
+                <p class="mt-3 text-white/85">Consulta, actualiza o cancela las reservas recibidas desde el sitio web de Horizonte Viajes.</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-4 py-10">
+        <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <p class="text-sm text-slate-500"><i class="bi bi-info-circle mr-1 text-primary"></i>Las solicitudes se registran cuando un visitante completa el formulario de reserva.</p>
+            <button type="button" data-open-reserva class="inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white">
+                <i class="bi bi-plus-lg"></i>Nueva solicitud
+            </button>
+        </div>
+
+        <div id="loading" class="rounded-2xl border border-slate-200 bg-white p-10 text-center text-slate-500 shadow-sm">
+            <i class="bi bi-hourglass-split mr-2"></i>Cargando reservas...
+        </div>
+
+        <div id="empty-state" class="hidden rounded-2xl border border-dashed border-slate-300 bg-white p-12 text-center">
+            <div class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-section-blue text-3xl text-primary"><i class="bi bi-suitcase-lg"></i></div>
+            <h2 class="font-display text-xl font-semibold text-footer">Sin solicitudes por ahora</h2>
+            <p class="mt-2 text-slate-500">Cuando un cliente envíe el formulario de reserva, aparecerá aquí.</p>
+            <button type="button" data-open-reserva class="mt-5 inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Registrar nueva solicitud <i class="bi bi-arrow-right"></i></button>
+        </div>
+
+        <div id="tabla-wrap" class="hidden overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-footer/5">
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-[960px] text-sm">
+                    <thead class="bg-footer text-white">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">#</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Cliente</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Paquete</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Salida</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Regreso</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Viajeros</th>
+                            <th class="px-4 py-3 text-left text-xs uppercase tracking-wide">Solicitud</th>
+                            <th class="px-4 py-3 text-center text-xs uppercase tracking-wide">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-body" class="divide-y divide-slate-100"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/ReservaService.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/reserva-modal.js"></script>
+    <script>
+        mountLayout('inicio');
+        setupReservaApp();
+
+        const reservaService = new ReservaService(getSupabaseClient());
+        const loading = document.getElementById('loading');
+        const emptyState = document.getElementById('empty-state');
+        const tablaWrap = document.getElementById('tabla-wrap');
+        const tbody = document.getElementById('tabla-body');
+
+        async function cargarReservas() {
+            try {
+                const reservas = await reservaService.listar();
+                loading.classList.add('hidden');
+                emptyState.classList.add('hidden');
+                tablaWrap.classList.add('hidden');
+                tbody.innerHTML = '';
+
+                if (!reservas.length) {
+                    emptyState.classList.remove('hidden');
+                    return;
+                }
+
+                tablaWrap.classList.remove('hidden');
+                tbody.innerHTML = reservas.map((r) => `
+                    <tr class="hover:bg-primary/5">
+                        <td class="px-4 py-3 font-display font-bold text-accent">${r.id}</td>
+                        <td class="px-4 py-3">
+                            <strong class="block text-footer">${r.nombre} ${r.apellido}</strong>
+                            <span class="text-xs text-slate-500">${r.email}</span>
+                            <span class="block text-xs text-slate-400">${r.telefono}</span>
+                        </td>
+                        <td class="px-4 py-3">
+                            <span class="rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary">${labelPaquete(r.paquete)}</span>
+                            <span class="mt-1 block text-xs text-slate-500">${labelPaquetePrecio(r.paquete)}</span>
+                        </td>
+                        <td class="px-4 py-3">${formatFecha(r.fecha_salida)}</td>
+                        <td class="px-4 py-3">${formatFecha(r.fecha_regreso)}</td>
+                        <td class="px-4 py-3">${r.viajeros || '—'}</td>
+                        <td class="px-4 py-3 text-slate-500">${formatDate(r.created_at)}</td>
+                        <td class="px-4 py-3">
+                            <div class="flex justify-center gap-2">
+                                <a href="editar-reserva.html?id=${r.id}" class="inline-flex items-center gap-1 rounded-lg bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary transition hover:bg-primary hover:text-white">
+                                    <i class="bi bi-pencil"></i> Modificar
+                                </a>
+                                <button type="button" data-delete="${r.id}" class="inline-flex items-center gap-1 rounded-lg bg-red-50 px-3 py-1.5 text-xs font-semibold text-red-600 transition hover:bg-red-600 hover:text-white">
+                                    <i class="bi bi-trash"></i> Eliminar
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+
+                tbody.querySelectorAll('[data-delete]').forEach((btn) => {
+                    btn.addEventListener('click', () => eliminarReserva(btn.dataset.delete));
+                });
+            } catch (err) {
+                loading.classList.add('hidden');
+                showToast(err.message || 'Error al cargar las reservas.', 'error', { title: 'Error de carga' });
+            }
+        }
+
+        async function eliminarReserva(id) {
+            if (!confirm('¿Eliminar esta solicitud de reserva?')) return;
+            try {
+                await reservaService.eliminar(id);
+                showToast('La solicitud fue eliminada del sistema.', 'success', { title: 'Reserva eliminada' });
+                await cargarReservas();
+            } catch (err) {
+                showToast(err.message || 'No se pudo eliminar la reserva.', 'error', { title: 'Error al eliminar' });
+            }
+        }
+
+        cargarReservas();
+    </script>
+</body>
+</html>

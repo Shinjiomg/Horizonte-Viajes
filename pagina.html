@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Viajes | Destinos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="overflow-x-hidden bg-section-soft font-sans text-slate-800">
+    <div id="site-header"></div>
+
+    <section class="relative mt-[4.5rem] min-h-[420px] overflow-hidden lg:mt-[6.5rem] lg:min-h-[620px]">
+        <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1920&q=80" alt="Paisaje de montañas" class="absolute inset-0 h-full w-full object-cover object-[center_30%]">
+        <div class="absolute inset-0 bg-[#011f4b]/50"></div>
+        <div class="relative z-10 mx-auto max-w-7xl px-4 pb-20 pt-28 sm:pt-32">
+            <nav aria-label="breadcrumb" class="mb-5">
+                <ol class="flex flex-wrap items-center gap-2 text-sm text-white/75">
+                    <li><a href="index.html" class="hover:text-accent">Inicio</a></li>
+                    <li class="text-white/40">/</li>
+                    <li class="text-white">Destinos</li>
+                </ol>
+            </nav>
+            <div class="max-w-xl rounded-2xl border-l-4 border-accent bg-footer/80 p-6 backdrop-blur-md sm:p-8">
+                <span class="mb-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">Temporada 2026</span>
+                <h1 class="font-display text-3xl font-bold text-white sm:text-4xl">Nuestros Paquetes Turísticos</h1>
+                <p class="mt-3 text-white/90">Elige tu próxima aventura con asesoría personalizada, tarifas competitivas y los destinos más solicitados del año.</p>
+                <div class="my-5 flex flex-wrap items-center gap-3 border-t border-white/20 pt-4 text-sm text-white/80">
+                    <span><strong class="font-display text-lg text-white">30+</strong> destinos</span><span class="h-4 w-px bg-white/35"></span>
+                    <span><strong class="font-display text-lg text-white">5k+</strong> viajeros</span><span class="h-4 w-px bg-white/35"></span>
+                    <span><strong class="font-display text-lg text-white">10</strong> años</span>
+                </div>
+                <button type="button" data-scroll-to="paquetes" class="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-primary transition hover:-translate-y-0.5 hover:shadow-xl">Ver paquetes <i class="bi bi-arrow-down ml-2"></i></button>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 leading-none">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="block h-[60px] w-full"><path fill="#dceef7" d="M0,40 C360,90 720,0 1080,50 C1260,70 1380,60 1440,40 L1440,80 L0,80 Z"/></svg>
+        </div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-4 pb-0">
+        <section id="paquetes" class="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-section-blue px-4 py-14 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <span class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">Nuestros paquetes</span>
+                <h2 class="mb-3 border-l-4 border-secondary pl-4 font-display text-3xl font-bold text-primary">Paquetes Destacados</h2>
+                <p class="mb-8 max-w-2xl text-slate-600">Tres experiencias seleccionadas por nuestros asesores. Todos incluyen vuelo, alojamiento y soporte durante el viaje.</p>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <article class="flex flex-col overflow-hidden rounded-2xl border border-slate-300/60 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+                        <figure class="relative m-0"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Caribe" class="h-52 w-full object-cover"><span class="absolute right-3 top-3 rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-white">Desde $1.200 USD</span></figure>
+                        <div class="flex flex-1 flex-col p-5"><h3 class="font-display text-lg text-footer">Caribe Todo Incluido</h3><p class="mt-2 flex-1 text-sm text-slate-500">7 días en Cancún con vuelo, hotel 5 estrellas, alimentación completa y traslados.</p><div class="my-4 flex gap-4 border-b border-slate-100 pb-4 text-xs text-primary"><span><i class="bi bi-calendar3 mr-1 text-accent"></i>7 días</span><span><i class="bi bi-umbrella-fill mr-1 text-accent"></i>Todo incluido</span></div><button type="button" data-open-reserva data-paquete="caribe" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Reservar <i class="bi bi-arrow-right"></i></button></div>
+                    </article>
+                    <article class="flex flex-col overflow-hidden rounded-2xl border border-slate-300/60 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+                        <figure class="relative m-0"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80" alt="Europa" class="h-52 w-full object-cover"><span class="absolute right-3 top-3 rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-white">Desde $2.800 USD</span></figure>
+                        <div class="flex flex-1 flex-col p-5"><h3 class="font-display text-lg text-footer">Europa Clásica</h3><p class="mt-2 flex-1 text-sm text-slate-500">Recorre París, Roma y Barcelona en 12 días. Vuelos, hoteles céntricos y tours guiados.</p><div class="my-4 flex gap-4 border-b border-slate-100 pb-4 text-xs text-primary"><span><i class="bi bi-calendar3 mr-1 text-accent"></i>12 días</span><span><i class="bi bi-map mr-1 text-accent"></i>Tours guiados</span></div><button type="button" data-open-reserva data-paquete="europa" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Reservar <i class="bi bi-arrow-right"></i></button></div>
+                    </article>
+                    <article class="flex flex-col overflow-hidden rounded-2xl border border-slate-300/60 bg-white transition hover:-translate-y-1 hover:shadow-lg">
+                        <figure class="relative m-0"><img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=800&q=80" alt="Andes" class="h-52 w-full object-cover"><span class="absolute right-3 top-3 rounded-md bg-accent px-2.5 py-1 text-xs font-semibold text-white">Desde $950 USD</span></figure>
+                        <div class="flex flex-1 flex-col p-5"><h3 class="font-display text-lg text-footer">Aventura en los Andes</h3><p class="mt-2 flex-1 text-sm text-slate-500">5 días en Cusco y Machu Picchu. Trekking, guía bilingüe, entradas y transporte incluidos.</p><div class="my-4 flex gap-4 border-b border-slate-100 pb-4 text-xs text-primary"><span><i class="bi bi-calendar3 mr-1 text-accent"></i>5 días</span><span><i class="bi bi-signpost-split mr-1 text-accent"></i>Aventura</span></div><button type="button" data-open-reserva data-paquete="andes" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Reservar <i class="bi bi-arrow-right"></i></button></div>
+                    </article>
+                </div>
+                <div class="mt-8 flex flex-wrap items-center justify-between gap-3 border-t-2 border-primary/15 pt-5">
+                    <p class="text-sm text-slate-500">Los precios varían según la temporada del año.</p>
+                    <button type="button" data-scroll-to="precios" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Ver tabla de precios <i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="precios" class="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-section-soft px-4 py-14 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl">
+                <span class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">Tarifas</span>
+                <h2 class="mb-3 border-l-4 border-secondary pl-4 font-display text-3xl font-bold text-primary">Precios por Temporada</h2>
+                <p class="mb-8 max-w-2xl text-slate-600">Consulta las tarifas según destino y temporada. Todos los paquetes incluyen asesoría personalizada sin costo adicional.</p>
+                <div class="grid gap-10 lg:grid-cols-12">
+                    <div class="lg:col-span-7">
+                        <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-footer/5">
+                            <div class="border-b border-slate-100 bg-slate-50 px-5 py-3">
+                                <p class="text-xs font-semibold uppercase tracking-widest text-slate-500">Tarifas referenciales 2026</p>
+                            </div>
+                            <div class="overflow-x-auto">
+                                <table class="w-full min-w-[520px] text-sm">
+                                    <thead>
+                                        <tr class="border-b border-slate-200 bg-footer text-white">
+                                            <th class="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-wider">#</th>
+                                            <th class="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-wider">Destino</th>
+                                            <th class="px-5 py-3.5 text-left text-[11px] font-semibold uppercase tracking-wider">Temporada</th>
+                                            <th class="px-5 py-3.5 text-right text-[11px] font-semibold uppercase tracking-wider">Precio</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="border-b border-slate-100 transition hover:bg-primary/[0.04]">
+                                            <td class="px-5 py-4"><span class="font-display text-lg font-bold text-accent">1</span></td>
+                                            <td class="px-5 py-4 font-medium text-footer">Cancún, México</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center gap-2"><span class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-700">Alta</span><span class="text-xs text-slate-400">Dic–Mar</span></span></td>
+                                            <td class="px-5 py-4 text-right"><span class="inline-block rounded-full bg-accent px-3.5 py-1 text-xs font-bold text-white">$1.500 USD</span></td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 bg-slate-50/50 transition hover:bg-primary/[0.04]">
+                                            <td class="px-5 py-4"><span class="font-display text-lg font-bold text-accent">2</span></td>
+                                            <td class="px-5 py-4 font-medium text-footer">Cancún, México</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center gap-2"><span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">Baja</span><span class="text-xs text-slate-400">Abr–Nov</span></span></td>
+                                            <td class="px-5 py-4 text-right"><span class="inline-block rounded-full bg-primary/15 px-3.5 py-1 text-xs font-bold text-primary">$1.200 USD</span></td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 transition hover:bg-primary/[0.04]">
+                                            <td class="px-5 py-4"><span class="font-display text-lg font-bold text-accent">3</span></td>
+                                            <td class="px-5 py-4 font-medium text-footer">París, Francia</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center gap-2"><span class="rounded-full bg-orange-100 px-2.5 py-0.5 text-xs font-semibold text-orange-700">Alta</span><span class="text-xs text-slate-400">Jun–Ago</span></span></td>
+                                            <td class="px-5 py-4 text-right"><span class="inline-block rounded-full bg-accent px-3.5 py-1 text-xs font-bold text-white">$3.200 USD</span></td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 bg-slate-50/50 transition hover:bg-primary/[0.04]">
+                                            <td class="px-5 py-4"><span class="font-display text-lg font-bold text-accent">4</span></td>
+                                            <td class="px-5 py-4 font-medium text-footer">París, Francia</td>
+                                            <td class="px-5 py-4"><span class="inline-flex items-center gap-2"><span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">Baja</span><span class="text-xs text-slate-400">Ene–May</span></span></td>
+                                            <td class="px-5 py-4 text-right"><span class="inline-block rounded-full bg-primary/15 px-3.5 py-1 text-xs font-bold text-primary">$2.800 USD</span></td>
+                                        </tr>
+                                        <tr class="transition hover:bg-primary/[0.04]">
+                                            <td class="px-5 py-4"><span class="font-display text-lg font-bold text-accent">5</span></td>
+                                            <td class="px-5 py-4 font-medium text-footer">Cusco, Perú</td>
+                                            <td class="px-5 py-4"><span class="rounded-full bg-footer/10 px-2.5 py-0.5 text-xs font-semibold text-footer">Todo el año</span></td>
+                                            <td class="px-5 py-4 text-right"><span class="inline-block rounded-full bg-footer/10 px-3.5 py-1 text-xs font-bold text-footer">$950 USD</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5">
+                        <h3 class="mb-5 border-b-2 border-slate-200 pb-3 font-display text-lg text-footer">¿Qué incluye tu viaje?</h3>
+                        <ul class="divide-y divide-slate-200">
+                            <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-shield-check"></i></span><div><strong class="text-footer">Seguro de viaje incluido</strong><p class="text-sm text-slate-500">Cobertura médica y de equipaje en todos los paquetes.</p></div></li>
+                            <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-credit-card-2-front"></i></span><div><strong class="text-footer">Pago en cuotas sin interés</strong><p class="text-sm text-slate-500">Financia tu viaje con planes flexibles de pago.</p></div></li>
+                            <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-headset"></i></span><div><strong class="text-footer">Soporte 24/7</strong><p class="text-sm text-slate-500">Asistencia durante todo tu viaje, donde estés.</p></div></li>
+                            <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-arrow-repeat"></i></span><div><strong class="text-footer">Cancelación flexible</strong><p class="text-sm text-slate-500">Política de cancelación hasta 30 días antes del viaje.</p></div></li>
+                        </ul>
+                        <div class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t-2 border-slate-200 pt-5">
+                            <p class="text-sm text-slate-500">¿Encontraste tu destino ideal?</p>
+                            <button type="button" data-open-reserva class="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e76f00]">Reservar ahora <i class="bi bi-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="reserva" class="cta-band">
+        <div class="cta-band__inner">
+            <span class="cta-band__badge">Reserva fácil</span>
+            <h2 class="cta-band__title">Da el primer paso hacia tu aventura</h2>
+            <p class="cta-band__text">Abre el formulario de reserva, elige tu paquete y recibe asesoría personalizada sin compromiso.</p>
+            <button type="button" data-open-reserva class="cta-band__btn">
+                <i class="bi bi-calendar-check"></i>Abrir formulario de reserva
+            </button>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/ReservaService.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/reserva-modal.js"></script>
+    <script>
+        mountLayout('destinos');
+        setupReservaApp();
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizonte Viajes | Inicio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/config.js"></script>
+</head>
+<body class="overflow-x-hidden bg-section-soft font-sans text-slate-800">
+    <div id="site-header"></div>
+
+    <section id="hero-carousel" class="relative mt-[4.5rem] overflow-hidden lg:mt-[6.5rem]">
+        <div class="relative min-h-[70vh] lg:min-h-[85vh] lg:max-h-[720px]">
+            <div data-slide class="absolute inset-0 z-10 opacity-100 transition-opacity duration-700">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="Playa paradisíaca en el Caribe" class="h-full w-full object-cover">
+                <div class="absolute inset-0 bg-[#011f4b]/45"></div>
+                <div class="absolute inset-0 flex items-end px-4 pb-16 sm:items-center sm:px-[8%] sm:pb-0">
+                    <div class="w-full max-w-xl rounded-2xl border-l-4 border-accent bg-footer/75 p-6 backdrop-blur-md sm:p-8">
+                        <span class="mb-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">Destino del mes</span>
+                        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Descubre el Caribe</h2>
+                        <p class="mt-3 text-white/90">Playas de arena blanca, aguas cristalinas y sol todo el año</p>
+                        <a href="pagina.html" class="mt-5 inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-primary transition hover:-translate-y-0.5 hover:shadow-xl">Ver paquetes <i class="bi bi-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-slide class="absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
+                <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?w=1920&q=80" alt="Montañas y aventura en los Andes" class="h-full w-full object-cover object-[center_30%]">
+                <div class="absolute inset-0 bg-[#011f4b]/45"></div>
+                <div class="absolute inset-0 flex items-end px-4 pb-16 sm:items-center sm:px-[8%] sm:pb-0">
+                    <div class="w-full max-w-xl rounded-2xl border-l-4 border-accent bg-footer/75 p-6 backdrop-blur-md sm:p-8">
+                        <span class="mb-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">Aventura</span>
+                        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Aventura en los Andes</h2>
+                        <p class="mt-3 text-white/90">Trekking, naturaleza y paisajes que te dejarán sin aliento</p>
+                        <a href="pagina.html" class="mt-5 inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-primary transition hover:-translate-y-0.5 hover:shadow-xl">Explorar rutas <i class="bi bi-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div data-slide class="absolute inset-0 z-0 opacity-0 transition-opacity duration-700">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=1920&q=80" alt="Ciudades históricas de Europa" class="h-full w-full object-cover object-[center_40%]">
+                <div class="absolute inset-0 bg-[#011f4b]/45"></div>
+                <div class="absolute inset-0 flex items-end px-4 pb-16 sm:items-center sm:px-[8%] sm:pb-0">
+                    <div class="w-full max-w-xl rounded-2xl border-l-4 border-accent bg-footer/75 p-6 backdrop-blur-md sm:p-8">
+                        <span class="mb-3 inline-block rounded-full bg-accent px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">Cultura</span>
+                        <h2 class="font-display text-3xl font-bold text-white sm:text-4xl">Europa Histórica</h2>
+                        <p class="mt-3 text-white/90">Cultura, gastronomía y arquitectura en cada rincón</p>
+                        <a href="pagina.html" class="mt-5 inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-primary transition hover:-translate-y-0.5 hover:shadow-xl">Conocer más <i class="bi bi-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute bottom-24 left-0 right-0 z-20 flex justify-center gap-2 sm:bottom-8">
+                <button type="button" data-indicator class="h-1 w-14 rounded bg-accent transition-all" aria-label="Diapositiva 1"></button>
+                <button type="button" data-indicator class="h-1 w-10 rounded bg-white/45 transition-all" aria-label="Diapositiva 2"></button>
+                <button type="button" data-indicator class="h-1 w-10 rounded bg-white/45 transition-all" aria-label="Diapositiva 3"></button>
+            </div>
+            <button type="button" data-carousel-prev class="absolute left-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/35 bg-white/15 p-3 text-white backdrop-blur-sm transition hover:bg-accent sm:left-5" aria-label="Anterior"><i class="bi bi-chevron-left text-xl"></i></button>
+            <button type="button" data-carousel-next class="absolute right-3 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/35 bg-white/15 p-3 text-white backdrop-blur-sm transition hover:bg-accent sm:right-5" aria-label="Siguiente"><i class="bi bi-chevron-right text-xl"></i></button>
+        </div>
+        <div class="relative -mt-px leading-none">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" class="block h-[60px] w-full"><path fill="#dceef7" d="M0,40 C360,90 720,0 1080,50 C1260,70 1380,60 1440,40 L1440,80 L0,80 Z"/></svg>
+        </div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-4 pb-0">
+        <section id="nosotros" class="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-section-blue px-4 py-14 sm:px-6 lg:px-8">
+            <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-12 lg:gap-0">
+                <div class="lg:col-span-5 lg:border-r lg:border-slate-300/60 lg:pr-10">
+                    <figure class="overflow-hidden rounded-xl border border-slate-300/60">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=900&q=80" alt="Planificación de viajes" class="h-60 w-full object-cover lg:h-full lg:min-h-[380px]">
+                    </figure>
+                    <p class="mt-3 text-sm text-slate-500"><i class="bi bi-award mr-1 text-accent"></i>Más de 10 años creando viajes inolvidables</p>
+                </div>
+                <div class="lg:col-span-7 lg:pl-10">
+                    <span class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">Quiénes somos</span>
+                    <h2 class="mb-4 border-l-4 border-secondary pl-4 font-display text-3xl font-bold text-primary">Sobre Horizonte Viajes</h2>
+                    <p class="mb-5 text-lg leading-relaxed text-slate-600">Diseñamos itinerarios a la medida con asesores certificados. Desde escapadas románticas hasta aventuras familiares, te acompañamos en cada paso del viaje.</p>
+                    <ul class="mb-6 divide-y divide-slate-200">
+                        <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-globe2"></i></span><div><strong class="block text-footer">Destinos internacionales</strong><span class="text-sm text-slate-500">Caribe, Europa, Asia y Sudamérica con paquetes todo incluido.</span></div></li>
+                        <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-person-check"></i></span><div><strong class="block text-footer">Asesoría personalizada</strong><span class="text-sm text-slate-500">Agentes certificados antes, durante y después de tu viaje.</span></div></li>
+                        <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-airplane-engines"></i></span><div><strong class="block text-footer">Todo en un solo lugar</strong><span class="text-sm text-slate-500">Vuelos, hoteles, tours y traslados sin complicaciones.</span></div></li>
+                        <li class="flex gap-3 py-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary"><i class="bi bi-credit-card-2-front"></i></span><div><strong class="block text-footer">Financiación flexible</strong><span class="text-sm text-slate-500">Pago en cuotas sin intereses para viajar cuando quieras.</span></div></li>
+                    </ul>
+                    <div class="flex flex-wrap items-center justify-between gap-4 border-t-2 border-slate-200 pt-5">
+                        <div class="flex flex-wrap items-center gap-3 text-sm text-slate-500"><span><strong class="font-display text-lg text-primary">30+</strong> destinos</span><span class="h-5 w-px bg-slate-300"></span><span><strong class="font-display text-lg text-primary">5k+</strong> viajeros</span><span class="h-5 w-px bg-slate-300"></span><span><strong class="font-display text-lg text-primary">98%</strong> satisfacción</span></div>
+                        <a href="pagina.html" class="inline-flex items-center gap-2 font-semibold text-primary transition hover:gap-3 hover:text-accent">Conocer nuestros paquetes <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="destinos" class="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 bg-section-soft px-4 py-14 sm:px-6 lg:px-8">
+            <div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2 lg:gap-0">
+                <div class="lg:border-r lg:border-slate-300/60 lg:pr-10">
+                    <span class="mb-3 inline-block rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-primary">Inspírate</span>
+                    <h2 class="mb-3 border-l-4 border-secondary pl-4 font-display text-3xl font-bold text-primary">Destinos Populares</h2>
+                    <p class="mb-5 text-slate-500">Los favoritos de nuestros viajeros en 2026. Explora la galería y elige tu próximo destino.</p>
+                    <div class="grid grid-cols-2 gap-2 overflow-hidden rounded-xl border border-slate-300/60">
+                        <figure class="relative col-span-2 m-0 overflow-hidden"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Caribe" class="h-48 w-full object-cover transition hover:scale-105"><figcaption class="absolute bottom-0 left-0 right-0 bg-footer/75 px-3 py-2 text-sm font-semibold text-white">Caribe</figcaption></figure>
+                        <figure class="relative m-0 overflow-hidden"><img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="París" class="h-28 w-full object-cover transition hover:scale-105"><figcaption class="absolute bottom-0 left-0 right-0 bg-footer/75 px-3 py-1.5 text-xs font-semibold text-white">París</figcaption></figure>
+                        <figure class="relative m-0 overflow-hidden"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600&q=80" alt="Roma" class="h-28 w-full object-cover transition hover:scale-105"><figcaption class="absolute bottom-0 left-0 right-0 bg-footer/75 px-3 py-1.5 text-xs font-semibold text-white">Roma</figcaption></figure>
+                        <figure class="relative col-span-2 m-0 overflow-hidden sm:col-span-1"><img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&q=80" alt="Bali" class="h-28 w-full object-cover transition hover:scale-105"><figcaption class="absolute bottom-0 left-0 right-0 bg-footer/75 px-3 py-1.5 text-xs font-semibold text-white">Bali</figcaption></figure>
+                    </div>
+                </div>
+                <div class="lg:pl-10">
+                    <h3 class="mb-5 border-b-2 border-slate-200 pb-3 font-display text-xl text-footer">Top 5 destinos 2026</h3>
+                    <ol class="divide-y divide-slate-200">
+                        <li class="flex gap-4 py-3"><span class="font-display text-lg font-bold text-accent">01</span><div><strong class="text-footer">Cancún, México</strong><p class="text-sm text-slate-500">Playas, cultura maya y resorts todo incluido · <span class="font-medium text-primary">Caribe</span></p></div></li>
+                        <li class="flex gap-4 py-3"><span class="font-display text-lg font-bold text-accent">02</span><div><strong class="text-footer">París, Francia</strong><p class="text-sm text-slate-500">Arte, gastronomía y la ciudad del romance · <span class="font-medium text-primary">Europa</span></p></div></li>
+                        <li class="flex gap-4 py-3"><span class="font-display text-lg font-bold text-accent">03</span><div><strong class="text-footer">Roma, Italia</strong><p class="text-sm text-slate-500">Historia, arquitectura y cocina mediterránea · <span class="font-medium text-primary">Europa</span></p></div></li>
+                        <li class="flex gap-4 py-3"><span class="font-display text-lg font-bold text-accent">04</span><div><strong class="text-footer">Bali, Indonesia</strong><p class="text-sm text-slate-500">Templos, naturaleza y playas tropicales · <span class="font-medium text-primary">Asia</span></p></div></li>
+                        <li class="flex gap-4 py-3"><span class="font-display text-lg font-bold text-accent">05</span><div><strong class="text-footer">Nueva York, EE.UU.</strong><p class="text-sm text-slate-500">Broadway, museos y energía urbana · <span class="font-medium text-primary">América</span></p></div></li>
+                    </ol>
+                    <div class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t-2 border-slate-200 pt-5">
+                        <p class="text-sm text-slate-500">¿Listo para planear tu viaje?</p>
+                        <a href="pagina.html" class="inline-flex items-center gap-2 font-semibold text-primary hover:text-accent">Explorar paquetes <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section id="reserva" class="cta-band">
+        <div class="cta-band__inner">
+            <span class="cta-band__badge">Tu próximo destino</span>
+            <h2 class="cta-band__title">¿Listo para reservar tu viaje?</h2>
+            <p class="cta-band__text">Cuéntanos qué paquete te interesa y un asesor certificado te contactará en menos de 24 horas con una cotización personalizada.</p>
+            <div class="cta-band__actions">
+                <button type="button" data-open-reserva class="cta-band__btn">
+                    <i class="bi bi-calendar-check"></i>Reservar ahora
+                </button>
+                <a href="pagina.html" class="cta-band__link">Ver paquetes <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="cta-band__trust">
+                <span><i class="bi bi-shield-check"></i>Reserva segura</span>
+                <span><i class="bi bi-clock"></i>Respuesta en 24 h</span>
+                <span><i class="bi bi-credit-card"></i>Pago en cuotas</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="site-footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/ReservaService.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/reserva-modal.js"></script>
+    <script src="js/carousel.js"></script>
+    <script>
+        mountLayout('inicio');
+        setupReservaApp();
+    </script>
+</body>
+</html>
