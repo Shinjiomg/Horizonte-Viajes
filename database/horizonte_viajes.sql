@@ -1,4 +1,4 @@
--- Horizonte Viajes — Actividad 4 (CRUD integrado como reservas)
+-- Horizonte Viajes — Proyecto Final (CRUD integrado como reservas)
 -- Proyecto Supabase: horizonte (smhrftrapxedxlqqmroc)
 -- URL: https://smhrftrapxedxlqqmroc.supabase.co
 

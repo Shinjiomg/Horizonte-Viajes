@@ -6,7 +6,7 @@
 **Programa:** Ingeniería de Software  
 
 **Proyecto:** Horizonte Viajes — Agencia de Viajes  
-**Actividad:** Actividad 4 — CRUD integrado al sitio web  
+**Entrega:** Proyecto Final — CRUD integrado al sitio web  
 **Temática:** Agencia de viajes  
 **Repositorio:** https://github.com/Shinjiomg/Horizonte-Viajes  
 **Fecha:** Agosto 2026
@@ -15,7 +15,7 @@
 
 ## 1. Introducción
 
-El presente documento describe el sitio web **Horizonte Viajes**, una agencia de viajes ficticia desarrollada como proyecto final de la unidad. El sitio combina páginas públicas de contenido turístico con un módulo **CRUD de solicitudes de reserva**, conectado a una base de datos en la nube (Supabase / PostgreSQL).
+El presente documento describe el sitio web **Horizonte Viajes**, una agencia de viajes ficticia desarrollada como **proyecto final** del diplomado. El sitio combina páginas públicas de contenido turístico con un módulo **CRUD de solicitudes de reserva**, conectado a una base de datos en la nube (Supabase / PostgreSQL).
 
 La interfaz se construyó con **HTML5**, **Tailwind CSS** (compilado desde `css/input.css`) y **JavaScript**. El backend de datos utiliza **Supabase** en lugar de PHP/MySQL, aplicando el mismo patrón de operaciones CRUD visto en las videoclases (Create, Read, Update, Delete) mediante la clase `ReservaService`.
 
@@ -39,13 +39,13 @@ Se mantuvo la temática de **agencia de viajes** para que el CRUD no sea un mód
 | `js/config.js` | Configuración de conexión a Supabase |
 | `css/input.css` | Fuente Tailwind con componentes reutilizables (`@apply`) |
 | `css/main.css` | Hoja de estilos compilada |
-| `database/horizonte_viajes.sql` | Script de creación de tabla e índices |
+| `database/horizonte_viajes.sql` | Esquema descargable (entrega académica); no requiere importación para evaluar |
 | `Documento_Analisis.md` | Este documento |
 | `README.md` | Instrucciones de uso, pruebas y despliegue |
 
 Las imágenes provienen de **Unsplash** mediante URLs externas.
 
-## 4. Módulo CRUD (Actividad 4)
+## 4. Módulo CRUD
 
 ### 4.1 Equivalencia con la consigna
 
@@ -55,7 +55,7 @@ Las imágenes provienen de **Unsplash** mediante URLs externas.
 | Tabla con acciones Modificar / Eliminar | `reservas.html` |
 | Formulario de edición | `editar-reserva.html` |
 | Clase con Insertar, Modificar, Listar, Eliminar | `ReservaService` en `js/ReservaService.js` |
-| Base de datos en carpeta | `database/horizonte_viajes.sql` |
+| Base de datos en carpeta | `database/horizonte_viajes.sql` (esquema; la app usa Supabase en la nube) |
 
 ### 4.2 Tabla `horizonte_reservas`
 
@@ -68,6 +68,14 @@ Campos principales: `id`, `nombre`, `apellido`, `email`, `telefono`, `paquete`, 
 3. En `reservas.html`, `listar()` muestra todas las solicitudes.
 4. **Modificar** redirige a `editar-reserva.html?id=X` → `modificar()`.
 5. **Eliminar** ejecuta `eliminar()` tras confirmación del usuario.
+
+### 4.4 Base de datos en la nube y archivo SQL
+
+El sitio **no depende de XAMPP ni de MySQL local**. La conexión ya está configurada en `js/config.js` hacia un proyecto **Supabase en la nube** (referencia `smhrftrapxedxlqqmroc`, proyecto `horizonte`). Quien clone el repositorio y abra las páginas con internet puede ejecutar el CRUD de inmediato: las operaciones Create, Read, Update y Delete persisten en esa base compartida del prototipo académico.
+
+El archivo `database/horizonte_viajes.sql` cumple el requisito de entregar el **esquema descargable** (tabla, índices, políticas RLS y trigger). Documenta la estructura ya desplegada en Supabase; **no es necesario importarlo** para revisar o calificar el proyecto. Solo sería útil si otra persona desea replicar la base en un proyecto Supabase propio y actualizar las credenciales en `js/config.js`.
+
+Por tratarse de un entorno de demostración con acceso `anon` para el prototipo, las solicitudes registradas durante las pruebas son datos reales en la nube compartida. Se recomienda no ingresar información personal sensible.
 
 ## 5. Elementos de la Interfaz Gráfica
 
@@ -126,7 +134,7 @@ Se verificó el ciclo completo CRUD:
 
 ## 9. Conclusiones
 
-El proyecto **Horizonte Viajes** cumple los objetivos de la Actividad 4 integrando el CRUD en la temática de agencia de viajes. Se demuestra el dominio de formularios, tablas, operaciones sobre base de datos y organización de código en una clase de servicio, con una interfaz responsive y contenido multimedia coherente.
+El proyecto **Horizonte Viajes** cumple los objetivos del **proyecto final** integrando el CRUD en la temática de agencia de viajes. Se demuestra el dominio de formularios, tablas, operaciones sobre base de datos y organización de código en una clase de servicio, con una interfaz responsive y contenido multimedia coherente.
 
 ## 10. Referencias
 

@@ -11,6 +11,29 @@ function navLinkClass(active, key) {
   return `${base} text-white/90 hover:text-white lg:hover:text-accent`;
 }
 
+function renderAdminTicker() {
+  const path = window.location.pathname.split('/').pop() || 'index.html';
+  const onAdmin = path === 'reservas.html' || path === 'editar-reserva.html';
+
+  if (onAdmin) {
+    return `
+  <div class="admin-ticker admin-ticker--active">
+    <div class="admin-ticker__inner">
+      <span class="admin-ticker__text"><i class="bi bi-shield-lock"></i> Área operativa — gestiona solicitudes de reserva de Horizonte Viajes</span>
+      <a href="reservas.html" class="admin-ticker__link">Ver solicitudes <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>`;
+  }
+
+  return `
+  <div class="admin-ticker">
+    <div class="admin-ticker__inner">
+      <span class="admin-ticker__text"><i class="bi bi-briefcase"></i> ¿Eres asesor o administrador? Consulta y gestiona las solicitudes de reserva recibidas.</span>
+      <a href="reservas.html" class="admin-ticker__link">Gestión de reservas <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>`;
+}
+
 function renderHeader(active) {
   const links = NAV_LINKS.map(
     (l) => `<li><a class="${navLinkClass(active, l.key)}" href="${l.href}"${active === l.key ? ' aria-current="page"' : ''}>${l.label}</a></li>`
@@ -18,6 +41,7 @@ function renderHeader(active) {
 
   return `
 <header class="fixed inset-x-0 top-0 z-50 shadow-lg shadow-footer/20">
+  ${renderAdminTicker()}
   <div class="hidden bg-footer text-white/85 lg:block">
     <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-xs">
       <div class="flex flex-wrap gap-x-6 gap-y-1">
@@ -101,7 +125,7 @@ function renderFooter() {
   </div>
   <div class="bg-[#011027] px-4 py-5 text-center text-xs text-white/50 md:text-left">
     <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 md:flex-row">
-      <p>&copy; 2026 Horizonte Viajes S.A.S. — Proyecto Final Unidad 1</p>
+      <p>&copy; 2026 Horizonte Viajes S.A.S. — Proyecto Final</p>
       <div class="flex flex-col gap-2 sm:flex-row sm:gap-4">
         <a href="#" class="transition hover:text-accent">Política de privacidad</a>
         <a href="#" class="transition hover:text-accent">Términos y condiciones</a>

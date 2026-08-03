@@ -1,6 +1,6 @@
 # Horizonte Viajes
 
-Sitio web de agencia de viajes ficticia — **Proyecto Final Unidad 1** (Ingeniería de Software, Ibero).
+Sitio web de agencia de viajes ficticia — **Proyecto Final** (Ingeniería de Software, Ibero).
 
 **Estudiante:** Jhonatan David Becerra Donado · **Código:** 100191481  
 **Repositorio:** [github.com/Shinjiomg/Horizonte-Viajes](https://github.com/Shinjiomg/Horizonte-Viajes)
@@ -11,7 +11,7 @@ Sitio web de agencia de viajes ficticia — **Proyecto Final Unidad 1** (Ingenie
 
 Horizonte Viajes es un aplicativo web con páginas públicas (inicio y destinos) y un módulo **CRUD de solicitudes de reserva**, integrado temáticamente con la agencia. Los visitantes envían reservas desde un modal; el área administrativa permite listar, editar y eliminar solicitudes.
 
-## Actividad 4 — Equivalencia CRUD
+## Proyecto Final — Módulo CRUD
 
 | Requisito académico | Implementación en este proyecto |
 |---|---|
@@ -28,7 +28,7 @@ Horizonte Viajes es un aplicativo web con páginas públicas (inicio y destinos)
 ## Estructura del proyecto
 
 ```
-ProyectoFinalUnidad1/
+Horizonte-Viajes/
 ├── index.html              # Inicio: carousel, nosotros, destinos, CTA reserva
 ├── pagina.html             # Destinos: paquetes, tabla de precios, CTA reserva
 ├── reservas.html           # Panel CRUD: listar y eliminar solicitudes
@@ -66,7 +66,9 @@ ProyectoFinalUnidad1/
 
 1. Clona o descarga el repositorio.
 2. Abre `index.html` en el navegador (doble clic o Live Server).
-3. Para probar el CRUD, usa **Gestión de reservas** en el footer o visita `reservas.html`.
+3. Para probar el CRUD, usa la franja **Gestión de reservas** del header o visita `reservas.html`.
+
+No hace falta instalar XAMPP, MySQL ni crear un proyecto Supabase propio: el sitio ya viene conectado a la base de datos en la nube (ver sección siguiente).
 
 El CSS ya viene compilado en `css/main.css`.
 
@@ -87,15 +89,29 @@ npm run watch:css
 
 ## Base de datos
 
-El script `database/horizonte_viajes.sql` crea la tabla `horizonte_reservas` con políticas RLS para el rol `anon` (prototipo académico).
+### Uso normal (evaluación y demostración)
 
-**Proyecto Supabase:** `horizonte` · ref `smhrftrapxedxlqqmroc`
+El aplicativo **ya está conectado** a un proyecto **Supabase en la nube**. Las credenciales públicas (`anon key`) están en `js/config.js`:
 
-Para importar en un proyecto propio:
+| Dato | Valor |
+|---|---|
+| Proyecto | `horizonte` |
+| Referencia | `smhrftrapxedxlqqmroc` |
+| URL | `https://smhrftrapxedxlqqmroc.supabase.co` |
+
+Al abrir el sitio con internet, el CRUD funciona de inmediato: las reservas que crees, edites o elimines **se guardan en esa base real** (datos compartidos del prototipo académico). El docente o quien revise el proyecto puede ver las mismas solicitudes en **Gestión de reservas** sin configurar nada adicional.
+
+> **Importante:** Es un entorno de demostración con políticas RLS abiertas para `anon`. No uses datos personales reales sensibles.
+
+### Archivo SQL (`database/horizonte_viajes.sql`)
+
+El script en la carpeta `database/` cumple el requisito de entrega del **esquema descargable**: define la tabla `horizonte_reservas`, índices, políticas RLS y trigger de `updated_at`. Documenta la estructura que ya está desplegada en Supabase.
+
+**No es necesario importarlo** para probar el proyecto clonado desde GitHub, salvo que quieras replicar la base en otro proyecto Supabase propio:
 
 1. Crear proyecto en [supabase.com](https://supabase.com).
-2. Ejecutar el SQL en el editor SQL del dashboard.
-3. Actualizar `SUPABASE_URL` y `SUPABASE_ANON_KEY` en `js/config.js`.
+2. Ejecutar `horizonte_viajes.sql` en el SQL Editor.
+3. Sustituir `SUPABASE_URL` y `SUPABASE_ANON_KEY` en `js/config.js`.
 
 ---
 
