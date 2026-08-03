@@ -142,7 +142,7 @@ Grid responsive de tres columnas en escritorio, dropdowns personalizados para pa
 |---|---|---|
 | **Imágenes** | Todas las páginas | Fotografías de destinos (Unsplash) |
 | **Slider / carousel** | `index.html` | Hero con 3 diapositivas automáticas |
-| **Video** | `index.html` — sección *Vive la experiencia* | Reproductor HTML5 con clip de destinos (Pexels) |
+| **Video** | `index.html` — sección *Vive la experiencia* | Reproductor HTML5 con `assets/video/fish.mp4` |
 | **Párrafos y listas** | Inicio y destinos | Contenido informativo de la agencia |
 | **Animaciones** | `js/animations.js` | Entrada suave de secciones al hacer scroll (`data-reveal`) |
 | **Transiciones CSS** | Componentes UI | Hover en tarjetas, modal, carousel y botones |

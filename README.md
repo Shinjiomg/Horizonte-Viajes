@@ -92,6 +92,10 @@ No hace falta instalar XAMPP, MySQL ni crear un proyecto Supabase propio: el sit
 
 El CSS ya viene compilado en `css/main.css`.
 
+### Video de la sección «Vive la experiencia»
+
+Coloca tu archivo MP4 en `assets/video/` (actualmente `fish.mp4`) y verifica la ruta en el `<source>` de `index.html`.
+
 ### Editar estilos Tailwind
 
 ```bash
