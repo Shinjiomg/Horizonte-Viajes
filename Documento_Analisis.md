@@ -9,7 +9,7 @@
 **Actividad:** Actividad 4 — CRUD integrado al sitio web  
 **Temática:** Agencia de viajes  
 **Repositorio:** https://github.com/Shinjiomg/Horizonte-Viajes  
-**Fecha:** Marzo 2026
+**Fecha:** Agosto 2026
 
 ---
 
