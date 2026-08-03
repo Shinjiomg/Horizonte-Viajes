@@ -146,18 +146,30 @@ function initReservaForm(formId) {
 
     if (submitBtn) {
       submitBtn.disabled = true;
-      submitBtn.innerHTML = '<i class="bi bi-hourglass-split"></i> Enviando solicitud...';
+      const editId = typeof getReservaEditId === 'function' ? getReservaEditId() : null;
+      submitBtn.innerHTML = editId
+        ? '<i class="bi bi-hourglass-split"></i> Guardando...'
+        : '<i class="bi bi-hourglass-split"></i> Enviando solicitud...';
     }
 
     try {
-      await reservaService.insertar(datos);
-      showToast(
-        'Un asesor de Horizonte Viajes te contactará en menos de 24 horas.',
-        'success',
-        { title: '¡Solicitud enviada!' }
-      );
-      form.reset();
-      if (typeof closeReservaModal === 'function') closeReservaModal();
+      const editId = typeof getReservaEditId === 'function' ? getReservaEditId() : null;
+
+      if (editId) {
+        await reservaService.modificar(editId, datos);
+        showToast('Los cambios se guardaron correctamente.', 'success', { title: 'Reserva actualizada' });
+        if (typeof onReservaEditSaved === 'function') onReservaEditSaved();
+        if (typeof closeReservaModal === 'function') closeReservaModal();
+      } else {
+        await reservaService.insertar(datos);
+        showToast(
+          'Un asesor de Horizonte Viajes te contactará en menos de 24 horas.',
+          'success',
+          { title: '¡Solicitud enviada!' }
+        );
+        form.reset();
+        if (typeof closeReservaModal === 'function') closeReservaModal();
+      }
     } catch (err) {
       showToast(
         err.message || 'No se pudo registrar la reserva. Intenta de nuevo.',
@@ -167,7 +179,9 @@ function initReservaForm(formId) {
     } finally {
       if (submitBtn) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = defaultBtnHtml;
+        const activeEditId = typeof getReservaEditId === 'function' ? getReservaEditId() : null;
+        if (activeEditId) setReservaModalUiMode('edit', activeEditId);
+        else submitBtn.innerHTML = defaultBtnHtml;
       }
     }
   });

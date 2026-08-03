@@ -30,7 +30,7 @@ Se mantuvo la temática de **agencia de viajes** para que el CRUD no sea un mód
 | `index.html` | Página de inicio: carousel, quiénes somos, destinos populares, CTA de reserva |
 | `pagina.html` | Destinos: paquetes, tabla de precios por temporada, CTA de reserva |
 | `reservas.html` | **CRUD — Listar / Eliminar** solicitudes de reserva |
-| `editar-reserva.html` | **CRUD — Modificar** una solicitud existente |
+| `editar-reserva.html` | Redirección a `reservas.html?edit={id}` (enlaces antiguos) |
 | `js/ReservaService.js` | **Clase CRUD:** insertar, modificar, listar, obtener, eliminar |
 | `js/reserva-modal.js` | Modal reutilizable con formulario de registro (Create) |
 | `js/dropdown.js` | Dropdowns personalizados para selects del formulario |
@@ -53,7 +53,7 @@ Las imágenes provienen de **Unsplash** mediante URLs externas.
 |---|---|
 | Formulario de registro | Modal en `js/reserva-modal.js` (disparado desde navbar, footer, CTAs) |
 | Tabla con acciones Modificar / Eliminar | `reservas.html` |
-| Formulario de edición | `editar-reserva.html` |
+| Formulario de edición | Modal en `reservas.html` (`js/reserva-modal.js` → `openEditReservaModal`) |
 | Clase con Insertar, Modificar, Listar, Eliminar | `ReservaService` en `js/ReservaService.js` |
 | Base de datos en carpeta | `database/horizonte_viajes.sql` (esquema; la app usa Supabase en la nube) |
 
@@ -66,7 +66,7 @@ Campos principales: `id`, `nombre`, `apellido`, `email`, `telefono`, `paquete`, 
 1. El visitante abre el modal **Reservar**, completa el formulario y envía.
 2. `ReservaService.insertar()` guarda en Supabase.
 3. En `reservas.html`, `listar()` muestra todas las solicitudes.
-4. **Modificar** redirige a `editar-reserva.html?id=X` → `modificar()`.
+4. **Modificar** abre el modal de edición con los datos cargados → `modificar()`.
 5. **Eliminar** ejecuta `eliminar()` tras confirmación del usuario.
 
 ### 4.4 Base de datos en la nube y archivo SQL
@@ -103,8 +103,7 @@ Grid responsive de tres columnas en escritorio, dropdowns personalizados para pa
 
 ### 5.5 Panel administrativo
 
-- `reservas.html`: tabla responsive con datos del cliente, paquete, fechas y acciones.
-- `editar-reserva.html`: formulario en tarjeta con los mismos campos editables.
+- `reservas.html`: tabla responsive con datos del cliente, paquete, fechas y acciones (editar en modal, eliminar).
 
 ## 6. Diseño Responsive
 
@@ -129,7 +128,7 @@ Se verificó el ciclo completo CRUD:
 
 1. **Create** — Registro de solicitud desde el modal de reserva.
 2. **Read** — Visualización en tabla de `reservas.html`.
-3. **Update** — Edición en `editar-reserva.html` y persistencia de cambios.
+3. **Update** — Edición en modal desde `reservas.html` y persistencia de cambios.
 4. **Delete** — Eliminación con confirmación desde el panel.
 
 ## 9. Conclusiones

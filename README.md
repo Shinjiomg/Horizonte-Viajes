@@ -17,7 +17,7 @@ Horizonte Viajes es un aplicativo web con páginas públicas (inicio y destinos)
 |---|---|
 | Formulario de registro | Modal de reserva (`data-open-reserva` → `#form-reserva`) |
 | Tabla + Modificar / Eliminar | `reservas.html` |
-| Formulario de edición | `editar-reserva.html?id={id}` |
+| Formulario de edición | Modal reutilizable en `reservas.html` (`openEditReservaModal`) |
 | Clase CRUD (Insertar, Modificar, Listar, Eliminar) | `js/ReservaService.js` |
 | Base de datos | `database/horizonte_viajes.sql` + Supabase (PostgreSQL) |
 
@@ -32,7 +32,7 @@ Horizonte-Viajes/
 ├── index.html              # Inicio: carousel, nosotros, destinos, CTA reserva
 ├── pagina.html             # Destinos: paquetes, tabla de precios, CTA reserva
 ├── reservas.html           # Panel CRUD: listar y eliminar solicitudes
-├── editar-reserva.html     # Panel CRUD: modificar solicitud
+├── editar-reserva.html     # Redirección a reservas.html (compatibilidad)
 ├── css/
 │   ├── input.css           # Fuente Tailwind (@layer components)
 │   └── main.css            # CSS compilado (generado)
@@ -121,7 +121,7 @@ El script en la carpeta `database/` cumple el requisito de entrega del **esquema
 |---|---|---|
 | 1 | Abrir sitio → **Reservar** → completar formulario → **Confirmar reserva** | Toast de éxito; registro en Supabase |
 | 2 | Ir a `reservas.html` | La solicitud aparece en la tabla |
-| 3 | Clic en **Modificar** | Abre `editar-reserva.html` con datos cargados |
+| 3 | Clic en **Modificar** | Abre el modal de edición con los datos cargados |
 | 4 | Cambiar un campo → **Guardar cambios** | Toast de éxito; cambios visibles en la tabla |
 | 5 | Clic en **Eliminar** → confirmar | La fila desaparece de la tabla |
 

@@ -1,3 +1,52 @@
+let reservaEditId = null;
+let onReservaEditSaved = null;
+
+function getReservaEditId() {
+  return reservaEditId;
+}
+
+function resetReservaModalMode() {
+  reservaEditId = null;
+  onReservaEditSaved = null;
+  setReservaModalUiMode('create');
+}
+
+function setReservaModalUiMode(mode, id) {
+  const modal = document.getElementById('reserva-modal');
+  const form = document.getElementById('form-reserva');
+  if (!modal || !form) return;
+
+  const title = modal.querySelector('#reserva-modal-title');
+  const desc = modal.querySelector('.modal__desc');
+  const submitBtn = form.querySelector('[type="submit"]');
+  const terminos = form.querySelector('#resTerminos');
+  const isEdit = mode === 'edit';
+
+  modal.querySelectorAll('[data-reserva-create-only]').forEach((el) => {
+    el.classList.toggle('hidden', isEdit);
+  });
+
+  if (title) {
+    title.textContent = isEdit ? `Editar solicitud #${id}` : 'Reserva tu viaje';
+  }
+  if (desc) {
+    desc.textContent = isEdit
+      ? 'Actualiza los datos registrados por el visitante.'
+      : 'Completa el formulario y un asesor te contactará en menos de 24 horas.';
+  }
+  if (submitBtn) {
+    submitBtn.innerHTML = isEdit
+      ? '<i class="bi bi-check-lg"></i>Guardar cambios'
+      : '<i class="bi bi-airplane-fill"></i>Confirmar reserva';
+    submitBtn.classList.toggle('btn--accent', !isEdit);
+    submitBtn.classList.toggle('btn--primary', isEdit);
+  }
+  if (terminos) {
+    terminos.required = !isEdit;
+    if (isEdit) terminos.checked = true;
+  }
+}
+
 function renderReservaFormHtml() {
   return `
     <form id="form-reserva" class="w-full">
@@ -53,7 +102,7 @@ function renderReservaFormHtml() {
           <label class="form-label" for="resComentarios">Comentarios adicionales <span class="form-label__optional">(opcional)</span></label>
           <textarea id="resComentarios" name="comentarios" rows="3" placeholder="Preferencias de hotel, actividades..." class="form-control"></textarea>
         </div>
-        <div class="form-field form-field--full">
+        <div class="form-field form-field--full" data-reserva-create-only>
           <label class="form-checkbox">
             <input type="checkbox" id="resTerminos" name="terminos" required>
             <span>Acepto los <a href="#">términos y condiciones</a> y la <a href="#">política de privacidad</a></span>
@@ -63,7 +112,7 @@ function renderReservaFormHtml() {
           <button type="submit" class="btn btn--accent"><i class="bi bi-airplane-fill"></i>Confirmar reserva</button>
         </div>
       </div>
-      <div class="form-trust">
+      <div class="form-trust" data-reserva-create-only>
         <span><i class="bi bi-shield-check"></i>Reserva segura</span>
         <span><i class="bi bi-clock"></i>Respuesta en 24 h</span>
         <span><i class="bi bi-credit-card"></i>Pago en cuotas</span>
@@ -117,8 +166,11 @@ function openReservaModal(options = {}) {
   const form = document.getElementById('form-reserva');
   if (!modal || !form) return;
 
-  if (options.paquete && form.paquete) {
-    setCustomDropdownValue(form.paquete, options.paquete);
+  if (!reservaEditId) {
+    setReservaModalUiMode('create');
+    if (options.paquete && form.paquete) {
+      setCustomDropdownValue(form.paquete, options.paquete);
+    }
   }
 
   modal.classList.remove('hidden');
@@ -129,6 +181,38 @@ function openReservaModal(options = {}) {
   if (firstInput) setTimeout(() => firstInput.focus(), 100);
 }
 
+async function openEditReservaModal(id, onSaved) {
+  mountReservaModal();
+  const form = document.getElementById('form-reserva');
+  if (!form) return;
+
+  try {
+    const r = await new ReservaService(getSupabaseClient()).obtener(id);
+    reservaEditId = id;
+    onReservaEditSaved = onSaved || null;
+
+    form.nombre.value = r.nombre;
+    form.apellido.value = r.apellido;
+    form.email.value = r.email;
+    form.telefono.value = r.telefono;
+    form.salida.value = r.fecha_salida;
+    form.regreso.value = r.fecha_regreso;
+    form.comentarios.value = r.comentarios || '';
+    setCustomDropdownValue(form.paquete, r.paquete);
+    if (r.viajeros) setCustomDropdownValue(form.viajeros, r.viajeros);
+    else {
+      form.viajeros.value = '';
+      syncCustomDropdown(form.viajeros);
+    }
+
+    setReservaModalUiMode('edit', id);
+    openReservaModal();
+  } catch (err) {
+    resetReservaModalMode();
+    showToast(err.message || 'No se pudo cargar la reserva.', 'error', { title: 'Error' });
+  }
+}
+
 function closeReservaModal() {
   const modal = document.getElementById('reserva-modal');
   if (!modal || modal.classList.contains('hidden')) return;
@@ -136,6 +220,10 @@ function closeReservaModal() {
   modal.classList.add('hidden');
   modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('overflow-hidden');
+
+  const form = document.getElementById('form-reserva');
+  if (form) form.reset();
+  resetReservaModalMode();
 }
 
 function bindReservaTriggers() {
@@ -145,6 +233,9 @@ function bindReservaTriggers() {
 
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
+      resetReservaModalMode();
+      const form = document.getElementById('form-reserva');
+      if (form) form.reset();
       const paquete = trigger.dataset.paquete || '';
       openReservaModal({ paquete });
     });
